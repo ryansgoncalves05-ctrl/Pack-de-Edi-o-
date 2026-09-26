@@ -4,7 +4,7 @@
 
 // Quando tivermos o link da Kiwify,
 // coloque ele entre as aspas abaixo.
-const CHECKOUT_URL = "COLOCAR_LINK_DA_KIWIFY_AQUI";
+const CHECKOUT_URL = "https://pay.kiwify.com.br/udMnLnr";
 
 
 // ==========================================
