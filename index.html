@@ -1,544 +1,1027 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pack de Edição — Recursos para suas edições</title>
+<title>Pack de Edição</title>
 
-    <meta name="description" content="Pack de recursos digitais para deixar suas edições mais criativas, profissionais e impactantes.">
+<meta name="description" content="Recursos digitais para deixar suas edições mais criativas, profissionais e impactantes.">
 
-    <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: min(1120px, calc(100% - 32px));
+    margin: auto;
+}
+
+
+/* HEADER */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(5,5,5,.88);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #1b1b1b;
+}
+
+.nav {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Space Grotesk";
+    font-weight: 700;
+}
+
+.logo-box {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    background: #ff1e1e;
+    border-radius: 8px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    color: #888;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.nav-button {
+    padding: 11px 17px;
+    background: white;
+    color: black;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* BUTTONS */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 52px;
+    padding: 0 23px;
+    border-radius: 9px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: .25s;
+}
+
+.primary {
+    background: #ff1e1e;
+    box-shadow: 0 15px 40px rgba(255,30,30,.2);
+}
+
+.primary:hover {
+    background: #ff3333;
+    transform: translateY(-3px);
+    box-shadow: 0 18px 50px rgba(255,30,30,.35);
+}
+
+.secondary {
+    border: 1px solid #292929;
+    background: #0d0d0d;
+}
+
+.secondary:hover {
+    border-color: #555;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-bottom: 1px solid #151515;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    right: -200px;
+    top: -250px;
+    background: rgba(255,30,30,.1);
+    filter: blur(100px);
+    border-radius: 50%;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 13px;
+    border: 1px solid #292929;
+    border-radius: 30px;
+    color: #aaa;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 25px;
+}
+
+.badge::before {
+    content: "●";
+    color: #ff1e1e;
+    margin-right: 8px;
+}
+
+h1 {
+    font-family: "Space Grotesk";
+    font-size: clamp(50px, 7vw, 82px);
+    line-height: .95;
+    letter-spacing: -4px;
+    margin-bottom: 28px;
+}
+
+h1 span,
+.red {
+    color: #ff1e1e;
+}
+
+.hero p {
+    color: #999;
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 550px;
+    margin-bottom: 32px;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+
+/* PRODUCT */
+
+.product {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.product-card {
+    width: min(420px, 100%);
+    padding: 12px;
+    background: #101010;
+    border: 1px solid #2b2b2b;
+    border-radius: 17px;
+    transform: rotate(2deg);
+    box-shadow: 0 40px 100px rgba(0,0,0,.7);
+    transition: .3s;
+}
+
+.product-card:hover {
+    transform: rotate(0deg) translateY(-8px);
+    border-color: #ff1e1e;
+}
+
+.product-card img {
+    display: block;
+    width: 100%;
+    border-radius: 9px;
+}
+
+
+/* SECTIONS */
+
+section {
+    padding: 120px 0;
+    border-bottom: 1px solid #151515;
+}
+
+.eyebrow {
+    color: #ff1e1e;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 17px;
+    display: block;
+}
+
+.section-title {
+    font-family: "Space Grotesk";
+    font-size: clamp(40px, 5vw, 65px);
+    line-height: 1;
+    letter-spacing: -3px;
+    margin-bottom: 25px;
+}
+
+.section-text {
+    color: #888;
+    line-height: 1.8;
+    max-width: 680px;
+}
+
+
+/* CATEGORIES */
+
+.categories {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    border-top: 1px solid #262626;
+    border-left: 1px solid #262626;
+}
+
+.category {
+    padding: 30px;
+    min-height: 175px;
+    border-right: 1px solid #262626;
+    border-bottom: 1px solid #262626;
+    background: #080808;
+    transition: .25s;
+}
+
+.category:hover {
+    background: #0d0d0d;
+    box-shadow: inset 4px 0 #ff1e1e;
+}
+
+.number {
+    color: #ff1e1e;
+    font-size: 10px;
+}
+
+.category h3 {
+    font-family: "Space Grotesk";
+    margin-top: 22px;
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.category p {
+    color: #707070;
+    font-size: 13px;
+}
+
+
+/* BENEFITS */
+
+.benefits {
+    background: #080808;
+}
+
+.benefit-grid {
+    margin-top: 55px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.benefit {
+    padding: 30px;
+    min-height: 250px;
+    border: 1px solid #242424;
+    border-right: 0;
+}
+
+.benefit:last-child {
+    border-right: 1px solid #242424;
+}
+
+.benefit-number {
+    color: #ff1e1e;
+    font-size: 11px;
+}
+
+.benefit h3 {
+    font-family: "Space Grotesk";
+    margin-top: 70px;
+    margin-bottom: 10px;
+}
+
+.benefit p {
+    color: #707070;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* OFFER */
+
+.offer-box {
+    display: grid;
+    grid-template-columns: 1fr .65fr;
+    gap: 60px;
+    align-items: center;
+    padding: 65px;
+    background: #0d0d0d;
+    border: 1px solid #292929;
+    border-radius: 18px;
+}
+
+.offer-box h2 {
+    font-family: "Space Grotesk";
+    font-size: clamp(38px,5vw,60px);
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.offer-box p {
+    color: #888;
+    margin-top: 22px;
+    line-height: 1.8;
+}
+
+.price-card {
+    padding: 30px;
+    background: #080808;
+    border: 1px solid #252525;
+    border-radius: 13px;
+}
+
+.price-label {
+    color: #666;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.price {
+    font-family: "Space Grotesk";
+    font-size: 65px;
+    font-weight: 700;
+    margin: 10px 0 25px;
+    letter-spacing: -4px;
+}
+
+.price small {
+    font-size: 19px;
+    letter-spacing: 0;
+}
+
+.price sup {
+    font-size: 32px;
+}
+
+.buy {
+    width: 100%;
+}
+
+
+/* FAQ */
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: .7fr 1.3fr;
+    gap: 90px;
+}
+
+.faq {
+    border-top: 1px solid #252525;
+}
+
+.faq:last-child {
+    border-bottom: 1px solid #252525;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    background: none;
+    border: 0;
+    color: white;
+    text-align: left;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.faq-answer {
+    display: none;
+    padding: 0 0 24px;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.faq.open .faq-answer {
+    display: block;
+}
+
+.plus {
+    color: #ff1e1e;
+    font-size: 22px;
+}
+
+
+/* FINAL */
+
+.final {
+    text-align: center;
+    background:
+        radial-gradient(circle, rgba(255,30,30,.12), transparent 50%),
+        #080808;
+}
+
+.final h2 {
+    font-family: "Space Grotesk";
+    font-size: clamp(40px,6vw,70px);
+    line-height: 1;
+    letter-spacing: -3px;
+    max-width: 750px;
+    margin: auto auto 22px;
+}
+
+.final p {
+    color: #777;
+    margin-bottom: 30px;
+}
+
+
+/* FOOTER */
+
+footer {
+    padding: 35px 0;
+    color: #555;
+    font-size: 11px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:850px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        padding: 90px 0;
+    }
+
+    .hero-grid,
+    .offer-box,
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product {
+        margin-top: 30px;
+    }
+
+    .benefit-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .benefit {
+        border-right: 1px solid #242424;
+    }
+
+    .offer-box {
+        padding: 35px 25px;
+    }
+
+    .faq-grid {
+        gap: 50px;
+    }
+}
+
+@media(max-width:600px) {
+
+    .container {
+        width: calc(100% - 28px);
+    }
+
+    .nav-button {
+        padding: 9px 12px;
+        font-size: 11px;
+    }
+
+    h1 {
+        font-size: 52px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .buttons .button {
+        width: 100%;
+    }
+
+    .categories {
+        grid-template-columns: 1fr;
+    }
+
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefit {
+        min-height: 210px;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+</style>
 </head>
+
 
 <body>
 
-    <!-- HEADER -->
-    <header class="header">
-        <div class="container nav">
 
-            <a href="#" class="logo">
-                <span class="logo-mark">P</span>
-                <span>Pack<span> de Edição</span></span>
-            </a>
+<header>
 
-            <nav class="nav-links">
-                <a href="#conteudo">Conteúdo</a>
-                <a href="#beneficios">Benefícios</a>
-                <a href="#faq">FAQ</a>
-            </nav>
+<div class="container nav">
 
-            <a href="#oferta" class="nav-button">
-                Comprar agora
-            </a>
+<a href="#" class="logo">
+<span class="logo-box">P</span>
+Pack de Edição
+</a>
 
-        </div>
-    </header>
+<nav class="nav-links">
+<a href="#conteudo">Conteúdo</a>
+<a href="#beneficios">Benefícios</a>
+<a href="#faq">FAQ</a>
+</nav>
 
+<a class="nav-button" href="https://pay.kiwify.com.br/udMnLnr">
+Comprar agora
+</a>
 
-    <main>
+</div>
 
-        <!-- HERO -->
-        <section class="hero">
+</header>
 
-            <div class="hero-glow"></div>
 
-            <div class="container hero-grid">
+<main>
 
-                <div class="hero-content">
 
-                    <div class="badge">
-                        <span class="badge-dot"></span>
-                        PACK DE EDIÇÃO
-                    </div>
+<section class="hero">
 
-                    <h1>
-                        Sua edição.
-                        <span>Outro nível.</span>
-                    </h1>
+<div class="container hero-grid">
 
-                    <p>
-                        Um conjunto de recursos digitais para deixar
-                        suas edições mais criativas, profissionais
-                        e impactantes.
-                    </p>
+<div>
 
-                    <div class="hero-buttons">
+<span class="badge">PACK DE EDIÇÃO</span>
 
-                        <a href="#oferta" class="button button-primary">
-                            Quero meu Pack
-                            <span>→</span>
-                        </a>
+<h1>
+Sua edição.
+<span>Outro nível.</span>
+</h1>
 
-                        <a href="#conteudo" class="button button-secondary">
-                            Ver conteúdo
-                        </a>
+<p>
+Um conjunto de recursos digitais para deixar suas
+edições mais criativas, profissionais e impactantes.
+</p>
 
-                    </div>
+<div class="buttons">
 
-                    <div class="hero-info">
-                        <div>
-                            <strong>10+</strong>
-                            <span>Categorias</span>
-                        </div>
+<a class="button primary"
+href="https://pay.kiwify.com.br/udMnLnr">
+Quero meu Pack →
+</a>
 
-                        <div class="info-line"></div>
+<a class="button secondary" href="#conteudo">
+Ver conteúdo
+</a>
 
-                        <div>
-                            <strong>Digital</strong>
-                            <span>Acesso ao produto</span>
-                        </div>
-                    </div>
+</div>
 
-                </div>
+</div>
 
 
-                <div class="hero-product">
+<div class="product">
 
-                    <div class="product-glow"></div>
+<div class="product-card">
 
-                    <div class="product-card">
+<img
+src="assets/product-cover.jpg"
+alt="Pack de Edição">
 
-                        <div class="product-top">
-                            <span>PACK DE EDIÇÃO</span>
-                            <span>01</span>
-                        </div>
+</div>
 
-                        <div class="product-image">
-                            <img src="assets/product-cover.jpg" alt="Capa do Pack de Edição">
-                        </div>
+</div>
 
-                        <div class="product-bottom">
-                            <span>RECURSOS PARA SUAS EDIÇÕES</span>
-                            <span>2026</span>
-                        </div>
+</div>
 
-                    </div>
+</section>
 
-                </div>
 
-            </div>
-        </section>
+<section>
 
+<div class="container">
 
-        <!-- INTRO -->
-        <section class="intro">
+<span class="eyebrow">01 — SOBRE O PACK</span>
 
-            <div class="container intro-grid">
+<h2 class="section-title">
+Recursos para
+<span class="red">elevar suas edições.</span>
+</h2>
 
-                <div class="section-label">
-                    <span>01</span>
-                    SOBRE O PACK
-                </div>
+<p class="section-text">
+O Pack de Edição reúne recursos digitais pensados
+para facilitar seu processo criativo e ajudar você
+a criar conteúdos com mais qualidade e personalidade.
+</p>
 
-                <div class="intro-content">
+</div>
 
-                    <h2>
-                        Recursos para
-                        <span>elevar suas edições.</span>
-                    </h2>
+</section>
 
-                    <p>
-                        O Pack de Edição reúne recursos digitais pensados
-                        para facilitar seu processo criativo e ajudar você
-                        a criar conteúdos com mais qualidade e personalidade.
-                    </p>
 
-                </div>
+<section id="conteudo">
 
-            </div>
+<div class="container">
 
-        </section>
+<span class="eyebrow">02 — CONTEÚDO</span>
 
+<h2 class="section-title">
+O que você
+<span class="red">vai encontrar.</span>
+</h2>
+
+<div class="categories">
+
+<div class="category">
+<span class="number">01</span>
+<h3>Efeitos para YouTube</h3>
+<p>Recursos para deixar seus vídeos mais dinâmicos.</p>
+</div>
+
+<div class="category">
+<span class="number">02</span>
+<h3>Efeitos Visuais</h3>
+<p>Elementos visuais para incrementar suas edições.</p>
+</div>
 
-        <!-- CONTEÚDO -->
-        <section class="content-section" id="conteudo">
+<div class="category">
+<span class="number">03</span>
+<h3>Empresas</h3>
+<p>Recursos para conteúdos de empresas e marcas.</p>
+</div>
 
-            <div class="container">
+<div class="category">
+<span class="number">04</span>
+<h3>Gráficos</h3>
+<p>Elementos gráficos para complementar seus projetos.</p>
+</div>
 
-                <div class="section-heading">
+<div class="category">
+<span class="number">05</span>
+<h3>Materiais / Copy</h3>
+<p>Materiais para ajudar na criação dos seus conteúdos.</p>
+</div>
 
-                    <div>
-                        <span class="eyebrow">02 — CONTEÚDO</span>
+<div class="category">
+<span class="number">06</span>
+<h3>Música</h3>
+<p>Recursos sonoros para suas produções.</p>
+</div>
 
-                        <h2>
-                            O que você
-                            <span>vai encontrar.</span>
-                        </h2>
-                    </div>
+<div class="category">
+<span class="number">07</span>
+<h3>Pack de Edição</h3>
+<p>Recursos adicionais para ampliar suas possibilidades.</p>
+</div>
 
-                    <p>
-                        Explore as categorias disponíveis
-                        dentro do Pack de Edição.
-                    </p>
+<div class="category">
+<span class="number">08</span>
+<h3>Trilhas / Vídeos</h3>
+<p>Elementos para complementar diferentes projetos.</p>
+</div>
 
-                </div>
+<div class="category">
+<span class="number">09</span>
+<h3>Vídeos Próprios</h3>
+<p>Conteúdos para utilizar em suas criações.</p>
+</div>
 
+<div class="category">
+<span class="number">10</span>
+<h3>Vídeos para YouTube</h3>
+<p>Recursos voltados para criação de conteúdo.</p>
+</div>
 
-                <div class="categories">
+</div>
 
-                    <div class="category">
-                        <span class="category-number">01</span>
-                        <h3>Efeitos para YouTube</h3>
-                        <p>Recursos para deixar seus vídeos mais dinâmicos.</p>
-                    </div>
+</div>
 
-                    <div class="category">
-                        <span class="category-number">02</span>
-                        <h3>Efeitos Visuais</h3>
-                        <p>Elementos visuais para incrementar suas edições.</p>
-                    </div>
+</section>
 
-                    <div class="category">
-                        <span class="category-number">03</span>
-                        <h3>Empresas</h3>
-                        <p>Recursos para conteúdos de empresas e marcas.</p>
-                    </div>
 
-                    <div class="category">
-                        <span class="category-number">04</span>
-                        <h3>Gráficos</h3>
-                        <p>Elementos gráficos para complementar seus projetos.</p>
-                    </div>
+<section class="benefits" id="beneficios">
 
-                    <div class="category">
-                        <span class="category-number">05</span>
-                        <h3>Materiais / Copy</h3>
-                        <p>Materiais para ajudar na criação dos seus conteúdos.</p>
-                    </div>
+<div class="container">
 
-                    <div class="category">
-                        <span class="category-number">06</span>
-                        <h3>Música</h3>
-                        <p>Recursos sonoros para suas produções.</p>
-                    </div>
+<span class="eyebrow">03 — BENEFÍCIOS</span>
 
-                    <div class="category">
-                        <span class="category-number">07</span>
-                        <h3>Pack de Edição</h3>
-                        <p>Recursos adicionais para ampliar suas possibilidades.</p>
-                    </div>
+<h2 class="section-title">
+Mais recursos.
+<span class="red">Mais possibilidades.</span>
+</h2>
 
-                    <div class="category">
-                        <span class="category-number">08</span>
-                        <h3>Trilhas / Vídeos</h3>
-                        <p>Elementos para complementar diferentes projetos.</p>
-                    </div>
+<div class="benefit-grid">
 
-                    <div class="category">
-                        <span class="category-number">09</span>
-                        <h3>Vídeos Próprios</h3>
-                        <p>Conteúdos para utilizar em suas criações.</p>
-                    </div>
+<div class="benefit">
+<span class="benefit-number">01</span>
+<h3>Mais criatividade</h3>
+<p>Tenha diferentes recursos para explorar novas ideias.</p>
+</div>
 
-                    <div class="category">
-                        <span class="category-number">10</span>
-                        <h3>Vídeos para YouTube</h3>
-                        <p>Recursos voltados para criação de conteúdo.</p>
-                    </div>
+<div class="benefit">
+<span class="benefit-number">02</span>
+<h3>Mais qualidade</h3>
+<p>Adicione elementos para deixar seus conteúdos mais completos.</p>
+</div>
 
-                </div>
+<div class="benefit">
+<span class="benefit-number">03</span>
+<h3>Mais praticidade</h3>
+<p>Tenha diversos recursos reunidos em um único produto.</p>
+</div>
 
-            </div>
+<div class="benefit">
+<span class="benefit-number">04</span>
+<h3>Economize tempo</h3>
+<p>Encontre recursos prontos para utilizar em suas criações.</p>
+</div>
 
-        </section>
+</div>
 
+</div>
 
-        <!-- BENEFÍCIOS -->
-        <section class="benefits" id="beneficios">
+</section>
 
-            <div class="container">
 
-                <div class="section-heading centered">
+<section id="oferta">
 
-                    <span class="eyebrow">03 — BENEFÍCIOS</span>
+<div class="container">
 
-                    <h2>
-                        Mais recursos.
-                        <span>Mais possibilidades.</span>
-                    </h2>
+<div class="offer-box">
 
-                </div>
+<div>
 
+<span class="eyebrow">04 — ACESSO</span>
 
-                <div class="benefit-grid">
+<h2>
+Leve o Pack para
+<span class="red">suas próximas criações.</span>
+</h2>
 
-                    <div class="benefit">
-                        <div class="benefit-icon">01</div>
-                        <h3>Mais criatividade</h3>
-                        <p>
-                            Tenha diferentes recursos para experimentar
-                            novas ideias nas suas edições.
-                        </p>
-                    </div>
+<p>
+Tenha acesso ao produto digital e leve novos
+recursos para suas edições.
+</p>
 
-                    <div class="benefit">
-                        <div class="benefit-icon">02</div>
-                        <h3>Mais qualidade</h3>
-                        <p>
-                            Adicione elementos que ajudam a deixar
-                            seus conteúdos mais completos.
-                        </p>
-                    </div>
+</div>
 
-                    <div class="benefit">
-                        <div class="benefit-icon">03</div>
-                        <h3>Mais praticidade</h3>
-                        <p>
-                            Tenha diversos recursos reunidos em
-                            um único produto digital.
-                        </p>
-                    </div>
 
-                    <div class="benefit">
-                        <div class="benefit-icon">04</div>
-                        <h3>Economize tempo</h3>
-                        <p>
-                            Encontre recursos prontos para usar
-                            sem precisar começar tudo do zero.
-                        </p>
-                    </div>
+<div class="price-card">
 
-                </div>
+<span class="price-label">ACESSO DIGITAL</span>
 
-            </div>
+<div class="price">
+<small>R$</small> 14<sup>,99</sup>
+</div>
 
-        </section>
+<a
+class="button primary buy"
+href="https://pay.kiwify.com.br/udMnLnr">
+Comprar agora →
+</a>
 
+</div>
 
-        <!-- OFERTA -->
-        <section class="offer" id="oferta">
+</div>
 
-            <div class="container">
+</div>
 
-                <div class="offer-card">
+</section>
 
-                    <div class="offer-content">
 
-                        <span class="eyebrow">04 — ACESSO</span>
+<section id="faq">
 
-                        <h2>
-                            Leve o Pack para
-                            <span>suas próximas criações.</span>
-                        </h2>
+<div class="container faq-grid">
 
-                        <p>
-                            Tenha acesso ao produto digital
-                            e leve novos recursos para suas edições.
-                        </p>
+<div>
 
-                    </div>
+<span class="eyebrow">05 — FAQ</span>
 
+<h2 class="section-title">
+Ficou com
+<span class="red">alguma dúvida?</span>
+</h2>
 
-                    <div class="price-area">
+<p class="section-text">
+Confira algumas das principais dúvidas
+sobre o Pack de Edição.
+</p>
 
-                        <span class="price-label">ACESSO DIGITAL</span>
+</div>
 
-                        <div class="price">
-                            <small>R$</small>
-                            14<span>,99</span>
-                        </div>
 
-                        <a href="#" class="button button-primary checkout-button">
-                            Comprar agora
-                            <span>→</span>
-                        </a>
+<div>
 
-                        <div class="secure">
-                            <span>✓</span>
-                            Pagamento processado com segurança
-                        </div>
+<div class="faq">
 
-                    </div>
+<button class="faq-question">
+<span>O que é o Pack de Edição?</span>
+<span class="plus">+</span>
+</button>
 
-                </div>
+<div class="faq-answer">
+É um produto digital que reúne diferentes
+recursos para edição e criação de conteúdo.
+</div>
 
-            </div>
+</div>
 
-        </section>
 
+<div class="faq">
 
-        <!-- FAQ -->
-        <section class="faq-section" id="faq">
+<button class="faq-question">
+<span>Como recebo o produto?</span>
+<span class="plus">+</span>
+</button>
 
-            <div class="container faq-grid">
+<div class="faq-answer">
+Após a confirmação da compra, o acesso
+ao produto é disponibilizado digitalmente.
+</div>
 
-                <div class="faq-title">
+</div>
 
-                    <span class="eyebrow">05 — FAQ</span>
 
-                    <h2>
-                        Ficou com
-                        <span>alguma dúvida?</span>
-                    </h2>
+<div class="faq">
 
-                    <p>
-                        Confira as principais dúvidas
-                        sobre o Pack de Edição.
-                    </p>
+<button class="faq-question">
+<span>O acesso é digital?</span>
+<span class="plus">+</span>
+</button>
 
-                </div>
+<div class="faq-answer">
+Sim. O produto é entregue de forma digital.
+</div>
 
+</div>
 
-                <div class="faq-list">
 
-                    <div class="faq-item">
+<div class="faq">
 
-                        <button class="faq-question">
-                            <span>O que é o Pack de Edição?</span>
-                            <span class="faq-plus">+</span>
-                        </button>
+<button class="faq-question">
+<span>Posso utilizar os recursos nas minhas edições?</span>
+<span class="plus">+</span>
+</button>
 
-                        <div class="faq-answer">
-                            <p>
-                                É um produto digital que reúne diferentes
-                                recursos para edição e criação de conteúdo.
-                            </p>
-                        </div>
+<div class="faq-answer">
+Os recursos são destinados à utilização
+em suas próprias criações, conforme as
+condições de uso do produto.
+</div>
 
-                    </div>
+</div>
 
 
-                    <div class="faq-item">
+<div class="faq">
 
-                        <button class="faq-question">
-                            <span>Como recebo o produto?</span>
-                            <span class="faq-plus">+</span>
-                        </button>
+<button class="faq-question">
+<span>Como funciona a compra?</span>
+<span class="plus">+</span>
+</button>
 
-                        <div class="faq-answer">
-                            <p>
-                                Após a confirmação da compra, o acesso
-                                ao produto é disponibilizado digitalmente.
-                            </p>
-                        </div>
+<div class="faq-answer">
+Clique em comprar, conclua o pagamento
+e receba o acesso ao produto digital.
+</div>
 
-                    </div>
+</div>
 
+</div>
 
-                    <div class="faq-item">
+</div>
 
-                        <button class="faq-question">
-                            <span>O acesso é digital?</span>
-                            <span class="faq-plus">+</span>
-                        </button>
+</section>
 
-                        <div class="faq-answer">
-                            <p>
-                                Sim. O produto é entregue de forma digital,
-                                sem envio físico.
-                            </p>
-                        </div>
 
-                    </div>
+<section class="final">
 
+<div class="container">
 
-                    <div class="faq-item">
+<span class="eyebrow">PACK DE EDIÇÃO</span>
 
-                        <button class="faq-question">
-                            <span>Posso utilizar os recursos nas minhas edições?</span>
-                            <span class="faq-plus">+</span>
-                        </button>
+<h2>
+Suas próximas edições
+<span class="red">começam aqui.</span>
+</h2>
 
-                        <div class="faq-answer">
-                            <p>
-                                Os recursos são destinados à utilização
-                                em suas próprias criações, conforme as
-                                condições de uso do produto.
-                            </p>
-                        </div>
+<p>
+Tenha novos recursos para explorar sua criatividade.
+</p>
 
-                    </div>
+<a
+class="button primary"
+href="https://pay.kiwify.com.br/udMnLnr">
+Quero meu Pack →
+</a>
 
+</div>
 
-                    <div class="faq-item">
+</section>
 
-                        <button class="faq-question">
-                            <span>Como funciona a compra?</span>
-                            <span class="faq-plus">+</span>
-                        </button>
 
-                        <div class="faq-answer">
-                            <p>
-                                Clique em comprar, siga para o checkout
-                                e conclua o pagamento. Após a confirmação,
-                                você receberá o acesso ao produto.
-                            </p>
-                        </div>
+</main>
 
-                    </div>
 
-                </div>
+<footer>
 
-            </div>
+<div class="container footer">
 
-        </section>
+<span>© 2026 Pack de Edição</span>
 
+<span>Produto digital</span>
 
-        <!-- CTA FINAL -->
-        <section class="final-cta">
+</div>
 
-            <div class="container">
+</footer>
 
-                <div class="final-card">
 
-                    <span class="eyebrow">PACK DE EDIÇÃO</span>
+<script>
 
-                    <h2>
-                        Suas próximas edições
-                        <span>começam aqui.</span>
-                    </h2>
+document.querySelectorAll(".faq-question").forEach(button => {
 
-                    <p>
-                        Tenha novos recursos para explorar
-                        sua criatividade.
-                    </p>
+button.addEventListener("click", () => {
 
-                    <a href="#oferta" class="button button-primary">
-                        Quero meu Pack
-                        <span>→</span>
-                    </a>
+const faq = button.parentElement;
 
-                </div>
+faq.classList.toggle("open");
 
-            </div>
+});
 
-        </section>
+});
 
-    </main>
+</script>
 
-
-    <!-- FOOTER -->
-    <footer class="footer">
-
-        <div class="container footer-inner">
-
-            <div class="footer-logo">
-                <span class="logo-mark">P</span>
-                Pack de Edição
-            </div>
-
-            <p>
-                © 2026 Pack de Edição. Todos os direitos reservados.
-            </p>
-
-            <div class="footer-links">
-                <a href="#">Termos</a>
-                <a href="#">Privacidade</a>
-                <a href="#">Suporte</a>
-            </div>
-
-        </div>
-
-    </footer>
-
-
-    <script src="script.js"></script>
 
 </body>
 </html>
